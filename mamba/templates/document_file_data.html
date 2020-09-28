@@ -1,0 +1,65 @@
+{% extends "mamba_base.html" %}
+
+{% block content %}
+  	<div class="container">
+        <div class="card mb-4 mt-md-5">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{dataview.title}}</h4>
+            </div>
+            <div class="card-body">
+            	<table>
+            		<thead>
+            			<tr>
+            				<th></th>
+            				{% for col in dataview.columns %}
+            					<th style="text-align:right;">{{col.label}}</th>
+            				{% endfor %}
+            			</tr>
+            			<tr>
+            				<th>Months Covered</th>
+            				{% for col in dataview.columns %}
+            					<th style="text-align:right;">{{col.months_in_interval}}</th>
+            				{% endfor %}
+            			</tr>
+            			<tr>
+            				<th>Prep Type</th>
+            				{% for col in dataview.columns %}
+            					<th style="text-align:right;padding-left:10px;">{{col.preparation_type}}</th>
+            				{% endfor %}
+            			</tr>
+            			<tr>
+            				<th>Statement Type</th>
+            				{% for col in dataview.columns %}
+            					<th style="text-align:right;">{{col.reporting_interval}}</th>
+            				{% endfor %}
+            			</tr>
+            		</thead>
+            		<tbody>
+            		{% for row in dataview.rows %}
+    				{% with row_index=loop.index0 %}
+    					<tr>
+    						<td {% if row.row_format.header %} style="border-bottom: 1px solid #000;padding-top:25px;"{% endif %}>
+    							{% if row.row_format.bold %}
+    								<strong>{{row.label}}</strong>
+    							{% else %}
+    								{% for n in range(row.indentation) %}&emsp;{% endfor %}{{row.line_item.label}}
+    							{% endif %}
+    						</td>
+    						{% for col in dataview.columns %}
+    							<td style="text-align:right;">
+    								{% if col.cells[row_index].calculated_value %}
+    									{{col.cells[row_index].calculated_value.value}}
+    								{% endif %}
+    							</td>
+    						{% endfor %}
+    					</tr>
+    				{% endwith %}
+    				{% endfor %}
+            		</tbody>
+            	</table>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}

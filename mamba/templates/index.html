@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/static/lang-logo.png">
+    </a>
+    <span>&nbsp;</span>
+    <a href="/" class="lang-logo lang-logo-fnc">
+      <img src="https://manual-public-web-static-resources.s3.amazonaws.com/public-api/fincura_square.png">
+    </a>
+    <h2>Fincura Integration Guide</h2>
+    <h1>Getting Started on Fincura with Python</h1>
+    <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good example of how to interact with the Fincura platform as a 3rd party.</p>
+    <a type="button" class="btn btn-lg btn-default" href="/mamba"><span class="glyphicon glyphicon-flash"></span> View the Demo app</a>
+    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+  </div>
+</div>
+<div class="container">
+  <div class="alert alert-info text-center" role="alert">
+    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
+      <ul>
+        <li><a href="https://github.com/heroku/python-getting-started">This example code</a> was deployed to Heroku.</li>
+        <li>It runs this website and serves up this web application.</li>
+        <li>The webapp can interact with Fincura to submit documents.</li>
+        <li>Displaying data that is contained in those documents as they move through the platform</li>
+        <li>It demo's how third parties can integrate these steps into their workflow.</li>
+        <!-- <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li> -->
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
+      <p>
+        Lets take this thing for a spin. Choose a file to upload to the platform
+      </p>
+      <input type="File" />
+
+      <br />
+      <a type="button" class="btn btn-primary" disabled="disbaled"> Submit to Fincura</a>
+
+
+      <hr />
+      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
+      <ul>
+        <li><a href="https://www.heroku.com/home">Heroku</a></li>
+        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
+        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
+        <li><a href="https://devcenter.heroku.com/articles/django-app-configuration">Configuring Django Apps for Heroku</a></li>
+      </ul>
+    </div>
+  </div> <!-- row -->
+   <div class="alert alert-info text-center" role="alert">
+    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
+  </div>
+</div>
+{% endblock %}

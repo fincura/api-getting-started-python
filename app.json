@@ -1,0 +1,39 @@
+{
+  "name": "Integrate with Fincura: a sample Python app",
+  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "image": "heroku/python",
+  "repository": "https://github.com/fincura/fincura-api-quickstart-python",
+  "keywords": ["python", "django" ],
+  "addons": [ ],
+  "env": {
+    "SECRET_KEY": {
+      "description": "The secret key for the Django application.",
+      "generator": "secret"
+    },
+    "APP_LABEL": {
+      "description": "A name to give to the 3rd party integrating with Fincura",
+      "value": "Mamba Financial Corp."
+    },
+    "FINCURA_ENV": {
+      "description": "The Fincura environment",
+      "value": "app-devbeta"
+    },
+    "FINCURA_API_REFRESH_TOKEN": {
+      "description": "A Fincura api refresh token",
+      "value": ""
+    },
+    "FINCURA_TENANT_ID": {
+      "description": "Fincura tenant account id",
+      "value": ""
+    }
+  },
+  "scripts": {},
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "python manage.py collectstatic --noinput",
+        "test": "python manage.py test"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{% extends "mamba_base.html" %}
+
+{% block header %}
+	<script type="text/javascript">
+		window.addEventListener("message", (event) => {
+		  // extra security
+		  // if (event.origin !== "https://app.fincura.com")
+		  //   return;
+
+		  switch (event.data.eventName) {
+		  	case 'workflowComplete':
+		  		console.log('workflow complete');
+		  		window.location = '/mamba/docs/data/{{document_file_uuid}}';
+		  		break;
+		  	case 'workflowCanceled':
+		  		window.location = '/mamba/docs/list';
+		  		break;
+		  	default:
+		  		console.log(event);
+		  }
+		}, false);
+	</script>
+	<style>
+		iframe {
+			display:block;
+			overflow:hidden;
+			height:calc(100vh - 125px); /* subtact height of existing header and footer */
+			width:100%;
+			background: #FFFFFF;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+    <div class="card mt-4">
+    	<div class="card-header">
+            <h4 class="my-0 font-weight-normal">Document Workflow</h4>
+        </div>
+    </div>
+    <iframe src="{{iframe_src_url}}" frameborder="0" ></iframe>
+{% endblock %}

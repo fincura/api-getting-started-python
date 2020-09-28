@@ -1,0 +1,199 @@
+{% extends "mamba_base.html" %}
+
+{% block content %}
+
+    {% for df in document_files %}
+    <div class="container">
+        <div class="card mb-4 mt-md-5">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">{{df.borrower_name}}</h4>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-12 col-form-label"><h3><img src="/static/assets/icons/notepad_file-2.png"> {{df.filename}}</h3></label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2">Status</div>
+                        <div class="col-sm-10">
+                            <span>
+                                {{df.status}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2">Statement Type(s)</div>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1" checked="checked" disabled>
+                                <label class="form-check-label" for="gridCheck1">
+                                    Income Statement
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 offset-sm-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck2" disabled>
+                                <label class="form-check-label" for="gridCheck2">
+                                    Balance Sheet
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 offset-sm-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck3" disabled>
+                                <label class="form-check-label" for="gridCheck3">
+                                    Cash Flow Statement
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 offset-sm-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck4" disabled>
+                                <label class="form-check-label" for="gridCheck4">
+                                    Tax Return
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="form-group row">
+                      <div class="col-sm-3 offset-sm-1">
+                        <a href="/mamba/docs/start-workflow/{{df.uuid}}" class="btn btn-lg btn-block"><img src="/static/assets/icons/internet_connection_wiz-5.png" class="icon-16"> 
+                            {% if df.status == 'SUCCEEDED' %}
+                                Spread Statements
+                            {% elif df.status == 'ManualReview' %}
+                                Review Data
+                            {% elif df.status == 'TableIDValidation' %}
+                                Choose Tables
+                            {% elif df.status == 'TableTabulationValidation' %}
+                                Verify Columns
+                            {% endif %}
+                        </a>
+                      </div>
+                      <div class="col-sm-3">
+                        <a href="#" class="btn btn-lg btn-block"><img src="/static/assets/icons/internet_connection_wiz-5.png" class="icon-16"> Assign to User</a>
+                      </div>
+                      <div class="col-sm-3">
+                        <a href="#" class="btn btn-lg btn-block"><img src="/static/assets/icons/internet_connection_wiz-5.png" class="icon-16"> Delete this document</a>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Icons -->
+
+ <!--    <div class="container">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Icons</h4>
+            </div>
+            <div class="card-body">
+                <p>Here we have 256-color icons from Windows 98. In png. <br>
+                    All icons can be viewed at <a href="https://win98icons.alexmeub.com/"> <img src="/static/assets/icons/search_web-1.png" class="icon-16-4"> win98icons.alexmeub.com</a></p>
+                <img src="/static/assets/icons/msie1-4.png">
+                <img src="/static/assets/icons/laptop_small-0.png">
+                <img src="/static/assets/icons/help_book_cool-1.png">
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Progress -->
+
+<!--     <div class="container">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Progress</h4>
+            </div>
+            <div class="card-body">
+                <p>Normal progress bar</p>
+                <div class="progress card">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <br>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <br>
+                <div class="progress">
+                    <div class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <br>
+                <p>Class progress-bar-blocks</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-blocks" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Elder scroll</h4>
+            </div>
+            <div class="card-body windows-scrollbar" style="overflow-y: scroll; height:100px;">
+                <h5>And modal:</h5>
+                Button trigger modal
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Launch demo modal
+                </button>
+                <p>Click button to show modal.</p>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <!-- Modal -->
+<!--     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="/static/assets/confused_travolta.gif" class="img-fluid">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- OTHER-->
+<!--     <div class="container">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Other things</h4>
+            </div>
+            <div class="card-body">
+                
+                <a class="btn btn-primary " href="video-background.html">
+                    <img src="/static/assets/icons/video_-0.png" class="icon-16"> Video background
+                </a>
+                <p>Page with video background.</p>
+        
+        <a class="btn btn-primary " href="cloud.html">
+                    <img src="/static/assets/icons/world_network_directories-1.png" class="icon-16"> Cloud
+                </a>
+                <p>Cloud hosting landing page template.</p>
+        
+        <a class="btn btn-primary " href="mobile.html">
+                    <img src="/static/assets/icons/laptop_infrared-2.png" class="icon-16"> Mobile
+                </a>
+                <p>Mobile app landing page template.</p>
+        
+
+            </div>
+        </div>
+    </div>  -->
+{% endblock %}
